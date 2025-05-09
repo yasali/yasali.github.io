@@ -38,7 +38,7 @@ const Hero = () => {
             <div className="bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl p-1">
               <div className="bg-white dark:bg-gray-900 rounded-xl overflow-hidden">
                 <img 
-                  src="/placeholder.svg" 
+                  src="/avatar.png" 
                   alt="Yasir Ali" 
                   className="w-full h-auto object-cover"
                 />
