@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { facebookContent } from '@/data/socialContent';
+import { Bell, Users, Video } from 'lucide-react';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,9 +24,15 @@ const itemVariants = {
   }
 };
 
+const iconMap = {
+  Bell: Bell,
+  Users: Users,
+  Video: Video
+};
+
 const FacebookSection = () => {
   return (
-    <section id="facebook" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+    <section id="facebook" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -34,10 +41,10 @@ const FacebookSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold mb-6 font-playfair bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
             Facebook Updates
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
             {facebookContent.description}
           </p>
         </motion.div>
@@ -49,36 +56,39 @@ const FacebookSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {facebookContent.posts.map((post) => (
-            <motion.div
-              key={post.id}
-              variants={itemVariants}
-              whileHover={{ scale: 1.02, y: -5 }}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300"
-            >
-              <div className="p-6">
-                <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
-                    {post.icon}
+          {facebookContent.posts.map((post) => {
+            const Icon = iconMap[post.icon as keyof typeof iconMap];
+            return (
+              <motion.div
+                key={post.id}
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, y: -5 }}
+                className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              >
+                <div className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
+                      <Icon className="h-6 w-6 text-blue-600" />
+                    </div>
+                    <h3 className="text-xl font-semibold ml-4 font-inter text-gray-800">{post.title}</h3>
                   </div>
-                  <h3 className="text-xl font-semibold ml-4">{post.title}</h3>
-                </div>
-                <p className="text-gray-600 mb-4">{post.description}</p>
-                <Button
-                  asChild
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105 transition-all duration-300"
-                >
-                  <a
-                    href={post.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <p className="text-gray-600 mb-4 font-inter">{post.description}</p>
+                  <Button
+                    asChild
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105 transition-all duration-300 font-inter"
                   >
-                    Read More
-                  </a>
-                </Button>
-              </div>
-            </motion.div>
-          ))}
+                    <a
+                      href={post.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Read More
+                    </a>
+                  </Button>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.div 
@@ -90,7 +100,7 @@ const FacebookSection = () => {
         >
           <Button
             asChild
-            className="bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105 transition-all duration-300"
+            className="bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105 transition-all duration-300 font-inter px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl"
           >
             <a
               href={facebookContent.pageUrl}
