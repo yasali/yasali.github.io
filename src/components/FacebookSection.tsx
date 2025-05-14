@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { facebookContent } from '@/data/socialContent';
 import { Bell, Users, Video } from 'lucide-react';
+import { FaFacebook } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,10 +42,11 @@ const FacebookSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold mb-6 font-playfair bg-gradient-to-r from-blue-600 via-blue-500 to-blue-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold mb-6 font-playfair tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent flex items-center justify-center gap-3">
+            <FaFacebook className="h-10 w-10 text-blue-600" />
             Facebook Updates
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed tracking-wide">
             {facebookContent.description}
           </p>
         </motion.div>
@@ -70,9 +72,9 @@ const FacebookSection = () => {
                     <div className="w-12 h-12 rounded-full bg-blue-50 flex items-center justify-center">
                       <Icon className="h-6 w-6 text-blue-600" />
                     </div>
-                    <h3 className="text-xl font-semibold ml-4 font-inter text-gray-800">{post.title}</h3>
+                    <h3 className="text-xl font-semibold ml-4 font-space text-gray-800">{post.title}</h3>
                   </div>
-                  <p className="text-gray-600 mb-4 font-inter">{post.description}</p>
+                  <p className="text-gray-600 mb-4 font-inter leading-relaxed">{post.description}</p>
                   <Button
                     asChild
                     className="w-full bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105 transition-all duration-300 font-inter"

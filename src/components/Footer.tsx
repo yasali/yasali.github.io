@@ -1,4 +1,3 @@
-
 import { Youtube, Facebook } from 'lucide-react';
 
 const Footer = () => {
@@ -9,8 +8,8 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="text-xl font-bold mb-4">Yasir Ali</h3>
-            <p className="text-gray-300 mb-4">
+            <h3 className="text-xl font-bold mb-4 font-playfair tracking-tight">Yasir Ali</h3>
+            <p className="text-gray-300 mb-4 font-inter">
               Sr. Software Engineer
             </p>
             <div className="flex space-x-4">
@@ -32,7 +31,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-bold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4 font-space">Quick Links</h3>
             <ul className="space-y-2">
               <FooterLink href="#about">About</FooterLink>
               <FooterLink href="#cv">Resume</FooterLink>

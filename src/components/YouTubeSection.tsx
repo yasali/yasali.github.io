@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Play } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { youtubeContent } from '@/data/socialContent';
+import { FaYoutube } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,10 +36,11 @@ const YouTubeSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold mb-6 font-playfair bg-gradient-to-r from-red-600 via-red-500 to-red-600 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold mb-6 font-playfair tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent flex items-center justify-center gap-3">
+            <FaYoutube className="h-10 w-10 text-red-600" />
             YouTube Channel
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed tracking-wide">
             {youtubeContent.description}
           </p>
         </motion.div>
@@ -75,8 +77,8 @@ const YouTubeSection = () => {
                 </div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 line-clamp-2 font-inter text-gray-800">{video.title}</h3>
-                <p className="text-gray-600 line-clamp-2 font-inter">{video.description}</p>
+                <h3 className="text-xl font-semibold mb-2 line-clamp-2 font-space text-gray-800">{video.title}</h3>
+                <p className="text-gray-600 line-clamp-2 font-inter leading-relaxed">{video.description}</p>
               </div>
             </motion.div>
           ))}

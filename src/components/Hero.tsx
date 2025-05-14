@@ -48,7 +48,7 @@ const Hero = () => {
               </div>
             </motion.div>
 
-            <h1 className="text-6xl md:text-7xl font-bold mb-6 font-playfair">
+            <h1 className="text-6xl md:text-7xl font-bold mb-6 font-playfair tracking-tight">
               <span className="bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
                 Yasir Ali
               </span>
@@ -57,7 +57,7 @@ const Hero = () => {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-3xl md:text-4xl font-playfair text-gray-600 mb-8"
+              className="text-3xl md:text-4xl font-space text-gray-600 mb-8 tracking-wide"
             >
               AI Enthusiast | Sr. Software Engineer | Engineering Leader
             </motion.div>
@@ -67,7 +67,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 font-inter leading-relaxed"
+            className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto mb-12 font-inter leading-relaxed tracking-wide"
           >
             A seasoned software engineer with 15 years of experience in mobile development, full-stack engineering, and AWS cloud solutions. Leading high-performance teams while exploring AI and machine learning technologies to create innovative, user-centric applications.
           </motion.p>

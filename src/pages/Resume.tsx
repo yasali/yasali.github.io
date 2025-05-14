@@ -32,15 +32,15 @@ const Resume = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
+          <h1 className="text-5xl font-bold mb-6 font-playfair tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
             Professional Journey
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8 font-inter leading-relaxed tracking-wide">
             A detailed look at my professional background, skills, and experience.
           </p>
           <Button 
             onClick={handleDownload}
-            className="bg-blue-600 hover:bg-blue-700 text-white transform hover:scale-105 transition-all duration-300"
+            className="bg-gray-900 hover:bg-gray-800 text-white transform hover:scale-105 transition-all duration-300 font-inter px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl"
           >
             <Download className="mr-2 h-5 w-5" /> Download Resume
           </Button>
@@ -53,9 +53,9 @@ const Resume = () => {
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
-                className={`px-6 py-2 rounded-md transition-all duration-300 ${
+                className={`px-6 py-2 rounded-md transition-all duration-300 font-inter ${
                   activeSection === section.id
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-gray-900 text-white'
                     : 'text-gray-600 hover:bg-gray-100'
                 }`}
               >
@@ -165,21 +165,21 @@ const TimelineCard = ({ title, company, period, description }: {
 }) => (
   <motion.div
     whileHover={{ scale: 1.02 }}
-    className="relative pl-8 pb-8 border-l-2 border-blue-200"
+    className="relative pl-8 pb-8 border-l-2 border-gray-200"
   >
-    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600" />
+    <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-gray-900" />
     <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
       <CardHeader>
         <div className="flex justify-between items-start">
           <div>
-            <CardTitle className="text-xl font-bold text-blue-600">{title}</CardTitle>
-            <p className="text-gray-600">{company}</p>
+            <CardTitle className="text-xl font-bold text-gray-900 font-space">{title}</CardTitle>
+            <p className="text-gray-600 font-inter">{company}</p>
           </div>
-          <span className="text-sm text-gray-500">{period}</span>
+          <span className="text-sm text-gray-500 font-inter">{period}</span>
         </div>
       </CardHeader>
       <CardContent>
-        <p className="text-gray-700">{description}</p>
+        <p className="text-gray-700 font-inter leading-relaxed">{description}</p>
       </CardContent>
     </Card>
   </motion.div>
@@ -188,7 +188,7 @@ const TimelineCard = ({ title, company, period, description }: {
 const SkillCategory = ({ title, skills }: { title: string; skills: string[] }) => (
   <Card className="shadow-lg hover:shadow-xl transition-all duration-300">
     <CardHeader>
-      <CardTitle className="text-xl font-bold text-blue-600">{title}</CardTitle>
+      <CardTitle className="text-xl font-bold text-gray-900 font-space">{title}</CardTitle>
     </CardHeader>
     <CardContent>
       <div className="flex flex-wrap gap-2">
@@ -196,7 +196,7 @@ const SkillCategory = ({ title, skills }: { title: string; skills: string[] }) =
           <motion.span
             key={index}
             whileHover={{ scale: 1.1 }}
-            className="px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+            className="px-4 py-2 bg-gray-100 text-gray-900 rounded-full text-sm font-medium font-inter"
           >
             {skill}
           </motion.span>

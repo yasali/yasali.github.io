@@ -26,24 +26,24 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-700 hover:to-blue-900 transition-all duration-300">
+            <Link to="/" className="text-2xl font-bold font-playfair tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent hover:from-gray-800 hover:to-gray-700 transition-all duration-300">
               Yasir Ali
             </Link>
           </div>
           
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <button 
-              onClick={() => handleSocialLink('about')}
-              className="font-medium text-gray-600 hover:text-blue-600 transition-colors duration-300 relative group"
-            >
-              About
-              <span className="absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-all duration-300 w-0 group-hover:w-full"></span>
-            </button>
             <NavLink href="/resume">Resume</NavLink>
             <SocialLink onClick={() => handleSocialLink('youtube')} icon={<FaYoutube className="h-5 w-5 text-red-600" />} />
             <SocialLink onClick={() => handleSocialLink('facebook')} icon={<FaFacebook className="h-5 w-5 text-blue-600" />} />
             <SocialLink onClick={() => handleSocialLink('medium')} icon={<FaMedium className="h-5 w-5 text-gray-800" />} />
+            <button 
+              onClick={() => handleSocialLink('about')}
+              className="font-medium text-gray-600 hover:text-gray-900 transition-colors duration-300 relative group font-inter"
+            >
+              About
+              <span className="absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-all duration-300 w-0 group-hover:w-full"></span>
+            </button>
           </div>
           
           {/* Mobile menu button */}
@@ -82,12 +82,6 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={cn("md:hidden", isMenuOpen ? "block" : "hidden")}>
         <div className="pt-2 pb-3 space-y-1 px-2 bg-white border-b border-gray-200">
-          <button
-            onClick={() => handleSocialLink('about')}
-            className="w-full text-left pl-3 pr-4 py-2 font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300"
-          >
-            About
-          </button>
           <MobileNavLink href="/resume">Resume</MobileNavLink>
           <MobileSocialLink onClick={() => handleSocialLink('youtube')}>
             <div className="flex items-center space-x-2">
@@ -107,6 +101,12 @@ const Navbar = () => {
               <span>Medium</span>
             </div>
           </MobileSocialLink>
+          <button
+            onClick={() => handleSocialLink('about')}
+            className="w-full text-left pl-3 pr-4 py-2 font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300"
+          >
+            About
+          </button>
         </div>
       </div>
     </nav>

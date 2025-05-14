@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { mediumContent } from '@/data/socialContent';
+import { FaMedium } from 'react-icons/fa';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,10 +36,11 @@ const MediumSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold mb-6 font-playfair bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 bg-clip-text text-transparent">
+          <h2 className="text-5xl font-bold mb-6 font-playfair tracking-tight bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent flex items-center justify-center gap-3">
+            <FaMedium className="h-10 w-10 text-gray-800" />
             Latest Articles
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto font-inter leading-relaxed tracking-wide">
             {mediumContent.description}
           </p>
         </motion.div>
@@ -58,8 +60,8 @@ const MediumSection = () => {
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 border border-gray-100"
             >
               <div className="p-6">
-                <h3 className="text-xl font-semibold mb-3 line-clamp-2 font-inter text-gray-800">{article.title}</h3>
-                <p className="text-gray-600 mb-4 line-clamp-3 font-inter">{article.excerpt}</p>
+                <h3 className="text-xl font-semibold mb-3 line-clamp-2 font-space text-gray-800">{article.title}</h3>
+                <p className="text-gray-600 mb-4 line-clamp-3 font-inter leading-relaxed">{article.excerpt}</p>
                 <div className="flex items-center justify-between text-sm text-gray-500 mb-4 font-inter">
                   <span>{article.date}</span>
                   <span>{article.readTime}</span>

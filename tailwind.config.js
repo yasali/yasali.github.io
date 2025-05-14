@@ -9,6 +9,7 @@ export default {
       fontFamily: {
         'playfair': ['"Playfair Display"', 'serif'],
         'inter': ['Inter', 'sans-serif'],
+        'space': ['"Space Grotesk"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
