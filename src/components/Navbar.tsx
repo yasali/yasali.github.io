@@ -1,12 +1,24 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
 import { FaYoutube, FaFacebook, FaMedium } from 'react-icons/fa';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
   
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const handleSocialLink = (section: string) => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: section } });
+    } else {
+      const element = document.getElementById(section);
+      element?.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -14,18 +26,18 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 flex items-center">
-            <a href="#" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-700 hover:to-blue-900 transition-all duration-300">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent hover:from-blue-700 hover:to-blue-900 transition-all duration-300">
               Yasir Ali
-            </a>
+            </Link>
           </div>
           
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             <NavLink href="#about">About</NavLink>
-            <NavLink href="#cv">Resume</NavLink>
-            <SocialLink href="#youtube" icon={<FaYoutube className="h-5 w-5 text-red-600" />} />
-            <SocialLink href="#facebook" icon={<FaFacebook className="h-5 w-5 text-blue-600" />} />
-            <SocialLink href="#medium" icon={<FaMedium className="h-5 w-5 text-gray-800" />} />
+            <NavLink href="/resume">Resume</NavLink>
+            <SocialLink onClick={() => handleSocialLink('youtube')} icon={<FaYoutube className="h-5 w-5 text-red-600" />} />
+            <SocialLink onClick={() => handleSocialLink('facebook')} icon={<FaFacebook className="h-5 w-5 text-blue-600" />} />
+            <SocialLink onClick={() => handleSocialLink('medium')} icon={<FaMedium className="h-5 w-5 text-gray-800" />} />
           </div>
           
           {/* Mobile menu button */}
@@ -65,61 +77,85 @@ const Navbar = () => {
       <div className={cn("md:hidden", isMenuOpen ? "block" : "hidden")}>
         <div className="pt-2 pb-3 space-y-1 px-2 bg-white border-b border-gray-200">
           <MobileNavLink href="#about">About</MobileNavLink>
-          <MobileNavLink href="#cv">CV</MobileNavLink>
-          <MobileNavLink href="#youtube">
+          <MobileNavLink href="/resume">Resume</MobileNavLink>
+          <MobileSocialLink onClick={() => handleSocialLink('youtube')}>
             <div className="flex items-center space-x-2">
               <FaYoutube className="h-5 w-5 text-red-600" />
               <span>YouTube</span>
             </div>
-          </MobileNavLink>
-          <MobileNavLink href="#facebook">
+          </MobileSocialLink>
+          <MobileSocialLink onClick={() => handleSocialLink('facebook')}>
             <div className="flex items-center space-x-2">
               <FaFacebook className="h-5 w-5 text-blue-600" />
               <span>Facebook</span>
             </div>
-          </MobileNavLink>
-          <MobileNavLink href="#medium">
+          </MobileSocialLink>
+          <MobileSocialLink onClick={() => handleSocialLink('medium')}>
             <div className="flex items-center space-x-2">
               <FaMedium className="h-5 w-5 text-gray-800" />
               <span>Medium</span>
             </div>
-          </MobileNavLink>
+          </MobileSocialLink>
         </div>
       </div>
     </nav>
   );
 };
 
-const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a 
-    href={href}
-    className="font-medium text-gray-600 hover:text-blue-600 transition-colors duration-300 relative group"
-  >
-    {children}
-    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 group-hover:w-full transition-all duration-300"></span>
-  </a>
-);
+const NavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
+  const location = useLocation();
+  const isActive = location.pathname === href || location.hash === href;
+  
+  return (
+    <Link 
+      to={href}
+      className={cn(
+        "font-medium text-gray-600 hover:text-blue-600 transition-colors duration-300 relative group",
+        isActive && "text-blue-600"
+      )}
+    >
+      {children}
+      <span className={cn(
+        "absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-all duration-300",
+        isActive ? "w-full" : "w-0 group-hover:w-full"
+      )}></span>
+    </Link>
+  );
+};
 
-const SocialLink = ({ href, icon }: { href: string; icon: React.ReactNode }) => (
-  <a 
-    href={href}
+const SocialLink = ({ onClick, icon }: { onClick: () => void; icon: React.ReactNode }) => (
+  <button 
+    onClick={onClick}
     className="p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
   >
     {icon}
-  </a>
+  </button>
 );
 
-const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => (
-  <a 
-    href={href}
-    className="block pl-3 pr-4 py-2 font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300"
-    onClick={() => {
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: 'smooth' });
-    }}
+const MobileNavLink = ({ href, children }: { href: string; children: React.ReactNode }) => {
+  const location = useLocation();
+  const isActive = location.pathname === href || location.hash === href;
+  
+  return (
+    <Link 
+      to={href}
+      className={cn(
+        "block pl-3 pr-4 py-2 font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300",
+        isActive && "text-blue-600 bg-gray-50"
+      )}
+    >
+      {children}
+    </Link>
+  );
+};
+
+const MobileSocialLink = ({ onClick, children }: { onClick: () => void; children: React.ReactNode }) => (
+  <button
+    onClick={onClick}
+    className="w-full text-left pl-3 pr-4 py-2 font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300"
   >
     {children}
-  </a>
+  </button>
 );
 
 export default Navbar;
