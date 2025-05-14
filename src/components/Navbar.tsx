@@ -33,7 +33,13 @@ const Navbar = () => {
           
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
-            <NavLink href="#about">About</NavLink>
+            <button 
+              onClick={() => handleSocialLink('about')}
+              className="font-medium text-gray-600 hover:text-blue-600 transition-colors duration-300 relative group"
+            >
+              About
+              <span className="absolute -bottom-1 left-0 h-0.5 bg-blue-600 transition-all duration-300 w-0 group-hover:w-full"></span>
+            </button>
             <NavLink href="/resume">Resume</NavLink>
             <SocialLink onClick={() => handleSocialLink('youtube')} icon={<FaYoutube className="h-5 w-5 text-red-600" />} />
             <SocialLink onClick={() => handleSocialLink('facebook')} icon={<FaFacebook className="h-5 w-5 text-blue-600" />} />
@@ -76,7 +82,12 @@ const Navbar = () => {
       {/* Mobile menu */}
       <div className={cn("md:hidden", isMenuOpen ? "block" : "hidden")}>
         <div className="pt-2 pb-3 space-y-1 px-2 bg-white border-b border-gray-200">
-          <MobileNavLink href="#about">About</MobileNavLink>
+          <button
+            onClick={() => handleSocialLink('about')}
+            className="w-full text-left pl-3 pr-4 py-2 font-medium text-gray-600 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors duration-300"
+          >
+            About
+          </button>
           <MobileNavLink href="/resume">Resume</MobileNavLink>
           <MobileSocialLink onClick={() => handleSocialLink('youtube')}>
             <div className="flex items-center space-x-2">
