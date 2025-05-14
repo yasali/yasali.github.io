@@ -1,33 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-
-const articles = [
-  {
-    id: 1,
-    title: "Building Scalable iOS Applications",
-    excerpt: "Learn the best practices for creating scalable and maintainable iOS applications using modern architecture patterns.",
-    date: "March 15, 2024",
-    readTime: "8 min read",
-    url: "https://medium.com/@yourusername/article1"
-  },
-  {
-    id: 2,
-    title: "SwiftUI vs UIKit: Making the Right Choice",
-    excerpt: "A comprehensive comparison between SwiftUI and UIKit to help you choose the right framework for your next iOS project.",
-    date: "March 10, 2024",
-    readTime: "10 min read",
-    url: "https://medium.com/@yourusername/article2"
-  },
-  {
-    id: 3,
-    title: "Advanced Swift Concurrency",
-    excerpt: "Deep dive into Swift's concurrency model and how to effectively use async/await in your iOS applications.",
-    date: "March 5, 2024",
-    readTime: "12 min read",
-    url: "https://medium.com/@yourusername/article3"
-  }
-];
+import { mediumContent } from '@/data/socialContent';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -65,7 +39,7 @@ const MediumSection = () => {
             Latest Articles
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Read my latest articles about iOS development, software engineering, and technology trends.
+            {mediumContent.description}
           </p>
         </motion.div>
 
@@ -76,7 +50,7 @@ const MediumSection = () => {
           viewport={{ once: true }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
-          {articles.map((article) => (
+          {mediumContent.articles.map((article) => (
             <motion.article
               key={article.id}
               variants={itemVariants}
@@ -122,7 +96,7 @@ const MediumSection = () => {
             className="bg-gray-800 hover:bg-gray-900 text-white transform hover:scale-105 transition-all duration-300"
           >
             <a
-              href="https://medium.com/@yourusername"
+              href={mediumContent.profileUrl}
               target="_blank"
               rel="noopener noreferrer"
             >

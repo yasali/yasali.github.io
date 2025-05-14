@@ -1,10 +1,9 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Hero from '@/components/Hero';
-import CV from '@/components/CV';
+import MediumSection from '@/components/MediumSection';
 import YouTubeSection from '@/components/YouTubeSection';
 import FacebookSection from '@/components/FacebookSection';
-import MediumSection from '@/components/MediumSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -25,10 +24,9 @@ const Index = () => {
     <div className="min-h-screen flex flex-col">
       <main className="flex-grow">
         <Hero />
-        <CV />
+        <MediumSection />
         <YouTubeSection />
         <FacebookSection />
-        <MediumSection />
       </main>
       <Footer />
     </div>
