@@ -34,8 +34,8 @@ const Navbar = () => {
           {/* Desktop navigation */}
           <div className="hidden md:flex md:items-center md:space-x-8">
             <NavLink href="/resume">Resume</NavLink>
-            <SocialLink onClick={() => handleSocialLink('youtube')} icon={<FaYoutube className="h-5 w-5 text-red-600" />} />
-            <SocialLink onClick={() => handleSocialLink('facebook')} icon={<FaFacebook className="h-5 w-5 text-blue-600" />} />
+            {/*<SocialLink onClick={() => handleSocialLink('youtube')} icon={<FaYoutube className="h-5 w-5 text-red-600" />} /> */}
+            {/*<SocialLink onClick={() => handleSocialLink('facebook')} icon={<FaFacebook className="h-5 w-5 text-blue-600" />} /> */}
             <SocialLink onClick={() => handleSocialLink('medium')} icon={<FaMedium className="h-5 w-5 text-gray-800" />} />
             <button 
               onClick={() => handleSocialLink('about')}

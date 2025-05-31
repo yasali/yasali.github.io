@@ -25,8 +25,8 @@ const Index = () => {
       <main className="flex-grow">
         <Hero />        
         <MediumSection />
-        <YouTubeSection />
-        <FacebookSection />
+        {/* <YouTubeSection /> */}
+        {/* <FacebookSection /> */}
       </main>
       <Footer />
     </div>

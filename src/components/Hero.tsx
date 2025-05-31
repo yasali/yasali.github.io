@@ -78,6 +78,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.6 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
+            {/*
             <Button
               asChild
               className="bg-gray-900 hover:bg-gray-800 text-white transform hover:scale-105 transition-all duration-300 font-inter px-8 py-6 text-lg rounded-xl shadow-lg hover:shadow-xl group"
@@ -97,6 +98,7 @@ const Hero = () => {
                 Watch Videos
               </a>
             </Button>
+           */}
           </motion.div>
 
           <motion.div

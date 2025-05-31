@@ -35,8 +35,8 @@ const Footer = () => {
             <ul className="space-y-2">
               <FooterLink href="#about">About</FooterLink>
               <FooterLink href="#cv">Resume</FooterLink>
-              <FooterLink href="#youtube">YouTube</FooterLink>
-              <FooterLink href="#facebook">Facebook</FooterLink>
+              {/*<FooterLink href="#youtube">YouTube</FooterLink> */}
+              {/*<FooterLink href="#facebook">Facebook</FooterLink>*/}
               <FooterLink href="#medium">Medium</FooterLink>
             </ul>
           </div>
